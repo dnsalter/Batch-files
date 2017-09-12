@@ -1,0 +1,35 @@
+@echo off
+title Startup Batch File
+cls
+
+:start
+echo 1. Open standard programs (Inventor, Chrome, Outlook, OneNote)
+echo 2. Exit
+
+set /p Choice=Select an option: 
+if '%choice%'=='' echo "%choice%" is not valid please try again
+if '%choice%'=='1' goto :choice1
+if '%choice%'=='2' goto :choice2
+
+goto start
+:choice1
+
+cd "C:\Program Files (x86)\Google\Chrome\Application"
+start chrome.exe
+start "" https://accounts.google.com
+start "" https://ca.reuters.com/
+
+cd "C:\Program Files\Autodesk\Inventor 2016\Bin"
+start Inventor.exe
+
+cd "C:\Program Files (x86)\Microsoft Office\root\Office16"
+start ONENOTE.EXE
+start OUTLOOK.EXE
+
+goto end
+
+:choice2
+goto end
+
+:end
+exit
